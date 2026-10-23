@@ -4,9 +4,7 @@ Et verktøy i Python som verdsetter børsnoterte selskaper med en
 diskontert kontantstrømmodell (DCF). Det henter regnskapsdata
 automatisk og viser hvor følsom verdien er for forutsetningene.
 
-**[Prøv appen her](git add .
-git commit -m "Legger til lenke til appen"
-git push)**
+**[Prøv appen her](https://dcf-oslo-bors.streamlit.app)**
 
 ![Skjermbilde av appen](bilder/app.png)
 
