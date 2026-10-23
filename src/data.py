@@ -49,7 +49,9 @@ def hent_selskap(ticker):
     balanse = aksje.balance_sheet
 
     gjeld = siste_verdi(hent_rad(balanse, "Total Debt"))
-    kontanter = siste_verdi(hent_rad(balanse, "Cash And Cash Equivalents"))
+    kontanter = siste_verdi(hent_rad(balanse, "Cash Cash Equivalents And Short Term Investments"))
+    if kontanter == 0:
+        kontanter = siste_verdi(hent_rad(balanse, "Cash And Cash Equivalents"))
 
     return {
         "ticker": ticker,
