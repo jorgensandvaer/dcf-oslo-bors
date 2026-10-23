@@ -61,3 +61,20 @@ def verdsett(start_kontantstrom, vekst, antall_ar, diskonteringsrente,
         "egenkapitalverdi": egenkapitalverdi,
         "verdi_per_aksje": verdi_per_aksje * valutakurs,
     }
+
+def sensitivitet(diskonteringsrenter, langsiktige_vekstrater, **forutsetninger):
+    """Lager en tabell med verdi per aksje for ulike kombinasjoner av WACC og vekst.
+
+    Radene er diskonteringsrenter, kolonnene er langsiktig vekst.
+    Kombinasjoner der renten ikke er høyere enn veksten, blir stående tomme.
+    """
+    import pandas as pd
+
+    tabell = pd.DataFrame(index=diskonteringsrenter, columns=langsiktige_vekstrater, dtype=float)
+    for rente in diskonteringsrenter:
+        for vekst in langsiktige_vekstrater:
+            if rente <= vekst:
+                continue
+            resultat = verdsett(diskonteringsrente=rente, langsiktig_vekst=vekst, **forutsetninger)
+            tabell.loc[rente, vekst] = resultat["verdi_per_aksje"]
+    return tabell
