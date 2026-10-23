@@ -61,5 +61,5 @@ for i in range(tabell.shape[0]):
 
 fig.colorbar(bilde, ax=ax, label="Oppside/nedside mot dagens kurs")
 fig.tight_layout()
-fig.savefig("sensitivitet.png", dpi=150)
+fig.savefig("bilder/sensitivitet.png", dpi=150)
 print("\nVarmekart lagret som sensitivitet.png")
