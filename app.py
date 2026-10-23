@@ -147,7 +147,8 @@ for i in range(tabell.shape[0]):
             ax.text(j, i, f"{celle:.0f}", ha="center", va="center")
 fig.colorbar(bilde, ax=ax, label="Oppside/nedside")
 fig.tight_layout()
-st.pyplot(fig)
+kol, _ = st.columns([3, 2])
+kol.pyplot(fig)
 
 st.caption(
     "Data fra Yahoo Finance. Modellen er laget for læring og er ikke investeringsråd. "
